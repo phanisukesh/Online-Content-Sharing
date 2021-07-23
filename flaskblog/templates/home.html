@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for post in posts.items %}
+        <article class="media content-section">
+          <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{{ url_for('user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
+              <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+            </div>
+            <h2><a class="article-title" href="{{ url_for('post', post_id=post.id,) }}">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+            {% if current_user.is_authenticated %}
+            {% if post.liked== "liked"%}
+
+                <form method="post" action="/Liked">
+                  <span>
+                   <a class="btn btn-primary btn-sm" value="on" href="{{ url_for('Liked', post_id=post.id) }}">Like {{ post.likes }}</a>
+                   {% if current_user.username!=post.author.username%}
+                   <a style="margin-left: 8px" class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('Notify', post_id=post.id) }}">Report</a>
+                {% endif %}
+                   </span>
+                   </form>
+                {% endif %}
+
+                {% if post.liked == 'notliked' %}
+                <form method="post" action="/Liked">
+                  <span>
+                   <a class="btn btn-light" value="on" href="{{ url_for('Liked', post_id=post.id,btn1=1) }}">Like {{ post.likes }}</a>
+                   {% if current_user.username!=post.author.username%}
+                   <a style="margin-left: 8px" class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('Notify', post_id=post.id) }}">Report</a>
+                {% endif %}
+                 </span>
+                  </form>
+
+                {% endif %}
+                {% endif %}
+          </div>
+        </article>
+    {% endfor %}
+    {%for page_num in posts.iter_pages() %}
+        {%if page_num%}
+            <a class="btn btn-outline-info nb-4" href="{{url_for('home',page=page_num)}}">{{page_num}}</a>
+        {%endif%}
+    {%endfor%}
+{% endblock content %}

@@ -1,0 +1,63 @@
+discrete -----numbers
+continuous-----decimals
+
+
+Nominal----categories  (names)
+Ordinal----can be ranked/ordered but not measured
+Interval scale----intervals are meaningful but not ratios(temperature)
+              Magnitude is same(b/w intervals)
+Ratio scale---ratios are meaningful(sales of product)
+
+
+MEASURES OF CENTRAL TENDENCY
+mean==average
+median
+mode
+
+MEASURES OF VARIATION
+           2     n     _ 2   _
+varaince  s=  1  E  (x-x)    x is mean
+             n-1 i=1  i
+                            2
+variance=(standard deviation) 
+
+standard deviation s=  _____________
+                      /   n     _ 2
+                     / 1  E  (x-x)
+                   _/ n-1 i=1
+
+
+range----(max value-min value)
+
+VISUALIZATION TECHNIQUES
+Bar chart  (find frequency of value)
+
+Pareto chart  (find 20 conditions that causes 80 % confusion)
+
+Box Plot (displays the prominent quartiles along with  outliers in data)
+
+Histogram (how many observations take the value within a certain interval) 
+
+Skewness                     kurtosis
+measure of assymety     measure of peakness
+in distribution          in the distribution
+
+Scatter Plot (observes relationship b/w variables)
+
+Correlation  (measures association and direction of relationship b/w variables)
+    -1           0               1
+ high           low           high 
+negative     correlation      positive 
+correlation                 correlation
+
+for both neg &pos
+0.1-0.3      0.4-0.7        0.8-1.0
+weak        moderate       strong
+	 
+
+MISSING VALUE IMPUTATION
+   treatment
+   1)drop observation
+   2)mean imputation
+   3)median imputation
+   4)statistical(regreesion)imputation
